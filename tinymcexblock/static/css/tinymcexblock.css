@@ -1,0 +1,54 @@
+/* CSS for TinyMceXBlock */
+
+.xblock-render .tinymcexblock-wrapper {
+  position: relative !important;
+}
+
+.xblock-render .background {
+  width: auto !important;
+}
+
+.tinymcexblock-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: "Roboto Condensed" !important;
+  color: white;
+}
+
+.tinymcexblock-wrapper .background {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 4em;
+}
+
+.tinymcexblock-wrapper .header-text {
+  font-size: 58px;
+  font-family: serif;
+  color: white;
+  margin: 1em 0;
+  padding: 0;
+  text-align: left;
+}
+
+.tinymcexblock-wrapper .content-text {
+  font-size: 29px;
+  color: white;
+  text-align: justify;
+  margin: 2em 0;
+  padding: 0;
+  white-space: pre-wrap;
+}
+
+.tinymce-studio textarea {
+  width: 100%;
+  height: 100px;
+  line-height: 18px;
+  font-size: 16px;
+}
