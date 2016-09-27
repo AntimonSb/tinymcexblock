@@ -26,9 +26,6 @@ class TinyMceXBlock(XBlock):
                           scope=Scope.settings,
                           help="This name appears in the horizontal navigation at the top of the page.")
     background_url = String(help="URL of the background image", default=None, scope=Scope.content)
-    mit_type = String(help="Type: text or image", default='text', scope=Scope.settings)
-    text_color = String(help="Color of displayed text", default='#ffffff', scope=Scope.content)
-    header_text = String(help="Header text content", default='', scope=Scope.content)
     content_text = String(help="Paragraph text content", default='', scope=Scope.content)
 
     def resource_string(self, path):
@@ -46,10 +43,7 @@ class TinyMceXBlock(XBlock):
         html_str = pkg_resources.resource_string(__name__, "static/html/tinymcexblock.html")
         frag = Fragment(unicode(html_str).format(
                                                 display_name=self.display_name,
-                                                mit_type=self.mit_type,
                                                 background_url=self.background_url,
-                                                text_color=self.text_color,
-                                                header_text=self.header_text,
                                                 content_text=self.content_text
                                                 ))
 
@@ -70,10 +64,7 @@ class TinyMceXBlock(XBlock):
                                                 display_name=self.display_name,
                                                 display_description=self.display_description,
                                                 thumbnail_url=self.thumbnail_url,
-                                                mit_type=self.mit_type,
                                                 background_url=self.background_url,
-                                                text_color=self.text_color,
-                                                header_text=self.header_text,
                                                 content_text=self.content_text
                                                 ))
         
@@ -93,9 +84,6 @@ class TinyMceXBlock(XBlock):
         self.display_name = data['display_name']
         self.display_description = data['display_description']
         self.thumbnail_url = data['thumbnail_url']
-        self.mit_type = data['mit_type']
-        self.text_color = data['text_color']
-        self.header_text = data['header_text']
         self.content_text = data['content_text']
 
         if not isinstance(data['background'], basestring):
