@@ -17,7 +17,7 @@
   height: 100%;
   width: 100%;
   font-family: "Roboto Condensed" !important;
-  color: white;
+  color: inherit;
 }
 
 .tinymcexblock-wrapper .background {
@@ -31,7 +31,7 @@
 .tinymcexblock-wrapper .header-text {
   font-size: 58px;
   font-family: serif;
-  color: white;
+  color: inherit;
   margin: 1em 0;
   padding: 0;
   text-align: left;
@@ -39,7 +39,7 @@
 
 .tinymcexblock-wrapper .content-text {
   font-size: 29px;
-  color: white;
+  color: inherit;
   text-align: justify;
   margin: 2em 0;
   padding: 0;

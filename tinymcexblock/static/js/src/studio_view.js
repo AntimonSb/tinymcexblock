@@ -8,6 +8,7 @@ function StudioEditSubmit(runtime, element) {
     data.append('thumbnail_url', $(element).find('input[name=thumbnail_url]').val());
     data.append('content_text', tinyMCE.activeEditor.getContent({format : 'raw'}));
     data.append('background', $(element).find('input[name=background]')[0].files[0]);
+    data.append('text_color', $(element).find('input[name=text_color]').val());
 
     runtime.notify('save', {state: 'start'});
 
