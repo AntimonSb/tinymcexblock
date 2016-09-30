@@ -22,7 +22,7 @@ class TinyMceXBlock(XBlock):
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
     display_name = String(display_name="Display Name",
-                          default="TinyMCE",
+                          default="Rich Text",
                           scope=Scope.settings,
                           help="This name appears in the horizontal navigation at the top of the page.")
     background_url = String(help="URL of the background image", default=None, scope=Scope.content)
