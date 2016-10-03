@@ -29,7 +29,8 @@
 }
 
 .tinymcexblock-wrapper .header-text {
-  font-size: 58px;
+  font-size: 54px;
+  font-weight: 100;
   font-family: serif;
   color: inherit;
   margin: 1em 0;
@@ -38,7 +39,8 @@
 }
 
 .tinymcexblock-wrapper .content-text {
-  font-size: 29px;
+  font-size: 20px;
+  line-height: 28px;
   color: inherit;
   text-align: justify;
   margin: 2em 0;
