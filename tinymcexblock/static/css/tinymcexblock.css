@@ -28,7 +28,8 @@
   padding: 4em;
 }
 
-.tinymcexblock-wrapper .header-text {
+.tinymcexblock-wrapper .header-text, h1 {
+  font-family: "Roboto Condensed" !important;
   font-size: 54px;
   font-weight: 100;
   font-family: serif;
@@ -39,6 +40,7 @@
 }
 
 .tinymcexblock-wrapper .content-text {
+  font-family: "Roboto Condensed" !important;
   font-size: 20px;
   line-height: 28px;
   color: inherit;
