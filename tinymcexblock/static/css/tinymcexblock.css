@@ -45,6 +45,7 @@
 
 .tinymcexblock-wrapper h2 {
   font-size: 60px;
+  color: inherit;
 }
 
 .tinymcexblock-wrapper h3 {
@@ -71,12 +72,23 @@
   color: inherit;
   text-align: justify;
   margin: 2em 0;
-  padding: 0;
+  padding-right: 20px;
   white-space: pre-wrap;
   max-height: 80%;
   max-width: 80%;
   overflow: auto;
 }
+
+.tinymcexblock-wrapper table, .tinymcexblock-wrapper th, .tinymcexblock-wrapper td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+.mce-content-body table, .mce-content-body th, .mce-content-body td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
 
 .tinymce-studio textarea {
   width: 100%;

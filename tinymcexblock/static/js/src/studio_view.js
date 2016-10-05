@@ -30,7 +30,7 @@ function StudioEditSubmit(runtime, element) {
   });
   tinymce.init({
     selector: 'textarea',
-    height: 500,
+    height: 300,
     plugins: [
       'codemirror image link media paste table textcolor'
     ],
