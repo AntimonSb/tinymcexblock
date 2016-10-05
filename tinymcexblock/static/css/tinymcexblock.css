@@ -28,7 +28,7 @@
   padding: 4em;
 }
 
-.tinymcexblock-wrapper .header-text, h1 {
+.tinymcexblock-wrapper .header-text, h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto Condensed" !important;
   font-size: 54px;
   font-weight: 100;
@@ -39,6 +39,31 @@
   text-align: left;
 }
 
+.tinymcexblock-wrapper h1 {
+  font-size: 68px;
+}
+
+.tinymcexblock-wrapper h2 {
+  font-size: 60px;
+}
+
+.tinymcexblock-wrapper h3 {
+  font-size: 52px;
+}
+
+.tinymcexblock-wrapper h4 {
+  font-size: 44px;
+}
+
+.tinymcexblock-wrapper h5 {
+  font-size: 36px;
+}
+
+.tinymcexblock-wrapper h6 {
+  font-size: 28px;
+}
+
+
 .tinymcexblock-wrapper .content-text {
   font-family: "Roboto Condensed" !important;
   font-size: 20px;
@@ -48,6 +73,9 @@
   margin: 2em 0;
   padding: 0;
   white-space: pre-wrap;
+  max-height: 80%;
+  max-width: 80%;
+  overflow: auto;
 }
 
 .tinymce-studio textarea {
@@ -56,3 +84,19 @@
   line-height: 18px;
   font-size: 16px;
 }
+
+/* Let's get this party started */
+.tinymce ::-webkit-scrollbar { width: 10px; }
+/* Track */
+.tinymce ::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.3);
+}
+/* Handle */
+.tinymce ::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.9);
+}
+.tinymce ::-webkit-scrollbar-thumb:window-inactive { background: rgba(255,255,255,0.4); }
