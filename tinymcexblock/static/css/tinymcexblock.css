@@ -1,6 +1,6 @@
 /* CSS for TinyMceXBlock */
 
-.xblock-render .tinymcexblock {
+.xblock-render .tinymcexblock-wrapper {
   position: relative !important;
 }
 
