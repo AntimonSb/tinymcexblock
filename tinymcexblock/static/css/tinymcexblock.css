@@ -8,7 +8,7 @@
   width: auto !important;
 }
 
-.tinymcexblock {
+.tinymcexblock-wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -20,7 +20,7 @@
   color: inherit;
 }
 
-.tinymcexblock .background {
+.tinymcexblock-wrapper .background {
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
@@ -28,9 +28,8 @@
   padding: 4em;
 }
 
-.tinymcexblock .header-text, h1, h2, h3, h4, h5, h6 {
+.tinymcexblock-wrapper h1, h2, h3, h4, h5, h6 {
   font-family: "Roboto Condensed" !important;
-  font-size: 54px;
   font-weight: 100;
   font-family: serif;
   color: inherit;
@@ -39,7 +38,7 @@
   text-align: left;
 }
 
-.tinymcexblock .content {
+.tinymcexblock-wrapper .content {
   top: 10%;
   left: 10%;
   padding: 0;
@@ -49,33 +48,33 @@
   font-weight: 100;
 }
 
-.tinymcexblock h1 {
+.tinymcexblock-wrapper h1 {
   font-size: 68px;
 }
 
-.tinymcexblock h2 {
+.tinymcexblock-wrapper h2 {
   font-size: 60px;
   color: inherit;
 }
 
-.tinymcexblock h3 {
+.tinymcexblock-wrapper h3 {
   font-size: 52px;
 }
 
-.tinymcexblock h4 {
+.tinymcexblock-wrapper h4 {
   font-size: 44px;
 }
 
-.tinymcexblock h5 {
+.tinymcexblock-wrapper h5 {
   font-size: 36px;
 }
 
-.tinymcexblock h6 {
+.tinymcexblock-wrapper h6 {
   font-size: 28px;
 }
 
 
-.tinymcexblock .content-text {
+.tinymcexblock-wrapper .content-text {
   font-family: "Roboto Condensed" !important;
   font-size: 20px;
   line-height: 28px;
@@ -89,7 +88,7 @@
   overflow: auto;
 }
 
-.tinymcexblock table, .tinymcexblock th, .tinymcexblock td {
+.tinymcexblock-wrapper table, .tinymcexblock th, .tinymcexblock td {
   border: 1px solid white;
   border-collapse: collapse;
 }
@@ -109,17 +108,17 @@
 
 
 /* Let's get this party started */
-.tinymcexblock ::-webkit-scrollbar { width: 10px; }
+.tinymcexblock-wrapper ::-webkit-scrollbar { width: 10px; }
 /* Track */
-.tinymcexblock ::-webkit-scrollbar-track {
+.tinymcexblock-wrapper ::-webkit-scrollbar-track {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: rgba(255,255,255,0.3);
 }
 /* Handle */
-.tinymcexblock ::-webkit-scrollbar-thumb {
+.tinymcexblock-wrapper ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: rgba(255,255,255,0.9);
 }
-.tinymcexblock ::-webkit-scrollbar-thumb:window-inactive { background: rgba(255,255,255,0.4); }
+.tinymcexblock-wrapper ::-webkit-scrollbar-thumb:window-inactive { background: rgba(255,255,255,0.4); }
