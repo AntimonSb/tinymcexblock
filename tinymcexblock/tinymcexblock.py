@@ -22,9 +22,10 @@ class TinyMceXBlock(XBlock):
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
     display_name = String(display_name="Display Name",
-                          default="Rich Text",
+                          default="TinyMCE",
                           scope=Scope.settings,
                           help="This name appears in the horizontal navigation at the top of the page.")
+    thumbnail_url = String(help="URL of the thumblnail image", default=None, scope=Scope.content)
     background_url = String(help="URL of the background image", default=None, scope=Scope.content)
     text_color = String(help="Color of displayed text", default='#ffffff', scope=Scope.content)
     content_text = String(help="Paragraph text content", default='', scope=Scope.content)
@@ -41,9 +42,12 @@ class TinyMceXBlock(XBlock):
         when viewing courses.
         """
 
+
+        print self
         html_str = pkg_resources.resource_string(__name__, "static/html/tinymcexblock.html")
         frag = Fragment(unicode(html_str).format(
                                                 display_name=self.display_name,
+                                                thumbnail_url=self.thumbnail_url,
                                                 background_url=self.background_url,
                                                 text_color=self.text_color,
                                                 content_text=self.content_text
@@ -64,7 +68,6 @@ class TinyMceXBlock(XBlock):
         # display variables
         frag = Fragment(unicode(html_str).format(
                                                 display_name=self.display_name,
-                                                display_description=self.display_description,
                                                 thumbnail_url=self.thumbnail_url,
                                                 background_url=self.background_url,
                                                 text_color=self.text_color,
@@ -85,10 +88,30 @@ class TinyMceXBlock(XBlock):
         """
         data = request.POST
         self.display_name = data['display_name']
-        self.display_description = data['display_description']
-        self.thumbnail_url = data['thumbnail_url']
         self.text_color = data['text_color']
         self.content_text = data['content_text']
+
+        if not isinstance(data['thumbnail'], basestring):
+            upload = data['thumbnail']
+
+            filename = self._file_storage_name(upload.file.name)
+            content_location = StaticContent.compute_location(self.location.course_key, filename)
+
+            chunked = upload.file.multiple_chunks()
+            sc_partial = partial(StaticContent, content_location, filename, upload.file.content_type)
+            if chunked:
+                content = sc_partial(upload.file.chunks())
+                tempfile_path = upload.file.temporary_file_path()
+            else:
+                content = sc_partial(upload.file.read())
+                tempfile_path = None
+
+            contentstore().save(content)
+
+            # readback the saved content - we need the database timestamp
+            readback = contentstore().find(content.location)
+            locked = getattr(content, 'locked', False)
+            self.thumbnail_url = StaticContent.serialize_asset_key_with_slash(content.location)
 
         if not isinstance(data['background'], basestring):
             upload = data['background']
