@@ -1,14 +1,13 @@
 /* CSS for TinyMceXBlock */
 
-.xblock-render .tinymcexblock-wrapper {
-  position: relative !important;
+.xblock-render .tinymce.tinymcexblock-wrapper {
+    position: relative;
 }
-
 .xblock-render .background {
   width: auto !important;
 }
 
-.tinymcexblock-wrapper {
+.tinymcexblock-wrapper.tinymce {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,66 +17,86 @@
   width: 100%;
   font-family: "Roboto Condensed" !important;
   color: inherit;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
-.tinymcexblock-wrapper .background {
+.tinymcexblock-wrapper.tinymce .background {
   height: 100%;
-  width: 100%;
+/*  width: 100%;*/
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 4em;
+  padding: 3em;
 }
 
-.tinymcexblock-wrapper h1, h2, h3, h4, h5, h6 {
+.tinymcexblock-wrapper.tinymce h1, .tinymcexblock-wrapper.tinymce h2, .tinymcexblock-wrapper.tinymce h3, .tinymcexblock-wrapper.tinymce h4, .tinymcexblock-wrapper.tinymce h5, .tinymcexblock-wrapper.tinymce h6 {
   font-family: "Roboto Condensed" !important;
   font-weight: 100;
   font-family: serif;
-  color: inherit;
-  margin: 1em 0;
+  margin: 1em 0 !important;
+  line-height: 1.5em !important;
   padding: 0;
   text-align: left;
+  color: inherit !important;
 }
 
-.tinymcexblock-wrapper .content {
-  top: 10%;
+.tinymcexblock-wrapper.tinymce .tinymcexblock-content{
+  position: relative;
+  font-family: "Roboto Condensed" !important;
+  font-weight: 100;
+  top: 7%;
   left: 10%;
   padding: 0;
-  height: 85%;
-  width: 80%;
+  height: 80%;
+  width: 90%;
   overflow: auto;
+  color: inherit;
+  padding-right: 30px;
+}
+
+.tinymcexblock-wrapper.tinymce p {
+  font-family: "Roboto Condensed" !important;
   font-weight: 100;
 }
 
-.tinymcexblock-wrapper h1 {
-  font-size: 68px;
+.xblock-render .tinymcexblock-wrapper.tinymce .tinymcexblock-content {
+  position: relative;
+  left: 0;
+  max-width: 100%;
+  width: 95%;
+  height: 400px;
 }
 
-.tinymcexblock-wrapper h2 {
-  font-size: 60px;
-  color: inherit;
+.tinymcexblock-wrapper.tinymce h1 {
+  font-size: 66px
 }
 
-.tinymcexblock-wrapper h3 {
-  font-size: 52px;
+.tinymcexblock-wrapper.tinymce h2 {
+  font-size: 58px !important;
 }
 
-.tinymcexblock-wrapper h4 {
-  font-size: 44px;
+.tinymcexblock-wrapper.tinymce h3 {
+  font-size: 50px !important;
 }
 
-.tinymcexblock-wrapper h5 {
-  font-size: 36px;
+.tinymcexblock-wrapper.tinymce h4 {
+  font-size: 42px;
 }
 
-.tinymcexblock-wrapper h6 {
-  font-size: 28px;
+.tinymcexblock-wrapper.tinymce h5 {
+  font-size: 34px;
+}
+
+.tinymcexblock-wrapper.tinymce h6 {
+  font-size: 26px;
 }
 
 
-.tinymcexblock-wrapper .content-text {
+.tinymcexblock-wrapper.tinymce .content-text, .tinymcexblock-wrapper.tinymce .tinymcexblock-content {
   font-family: "Roboto Condensed" !important;
   font-size: 20px;
-  line-height: 28px;
+  line-height: 1.5em;
   color: inherit;
   text-align: justify;
   margin: 2em 0;
@@ -88,14 +107,10 @@
   overflow: auto;
 }
 
-.tinymcexblock-wrapper table, .tinymcexblock th, .tinymcexblock td {
+.tinymcexblock-wrapper.tinymce table, .tinymcexblock-wrapper.tinymce th, .tinymcexblock-wrapper.tinymce td {
   border: 1px solid white;
   border-collapse: collapse;
-}
-
-.mce-content-body table, .mce-content-body th, .mce-content-body td {
-  border: 1px solid white;
-  border-collapse: collapse;
+  border-color: inherit;
 }
 
 .editor-with-buttons.tinymce-studio{
@@ -106,9 +121,22 @@
   height:720px !important;
 }
 
+.tinymce-studio .setting-input.hidden{
+  display: none;
+}
+
+.tinymce-studio .choose-file{
+  height: 100%;
+  min-width: 100px;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid #b2b2b2;
+  text-overflow: ellipsis;
+  margin-right: 20px;
+}
 
 /* Let's get this party started */
-.tinymcexblock-wrapper ::-webkit-scrollbar { width: 10px; }
+.tinymcexblock-wrapper ::-webkit-scrollbar { width: 10px }
 /* Track */
 .tinymcexblock-wrapper ::-webkit-scrollbar-track {
   -webkit-border-radius: 10px;
@@ -122,3 +150,4 @@
   background: rgba(255,255,255,0.9);
 }
 .tinymcexblock-wrapper ::-webkit-scrollbar-thumb:window-inactive { background: rgba(255,255,255,0.4); }
+

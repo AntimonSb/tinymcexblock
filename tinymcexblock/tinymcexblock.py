@@ -42,8 +42,6 @@ class TinyMceXBlock(XBlock):
         when viewing courses.
         """
 
-
-        print self
         html_str = pkg_resources.resource_string(__name__, "static/html/tinymcexblock.html")
         frag = Fragment(unicode(html_str).format(
                                                 display_name=self.display_name,
@@ -68,6 +66,7 @@ class TinyMceXBlock(XBlock):
         # display variables
         frag = Fragment(unicode(html_str).format(
                                                 display_name=self.display_name,
+                                                display_description=self.display_description,
                                                 thumbnail_url=self.thumbnail_url,
                                                 background_url=self.background_url,
                                                 text_color=self.text_color,
@@ -75,6 +74,7 @@ class TinyMceXBlock(XBlock):
                                                 ))
         
         frag.add_css(self.resource_string("static/css/tinymcexblock.css"))
+#        frag.add_css(self.load_resource("public/css/codepen.min.css"))
         frag.add_javascript(self.resource_string("static/js/src/studio_view.js"))
         
         frag.initialize_js('StudioEditSubmit')
@@ -88,6 +88,7 @@ class TinyMceXBlock(XBlock):
         """
         data = request.POST
         self.display_name = data['display_name']
+        self.display_description = data['display_description']
         self.text_color = data['text_color']
         self.content_text = data['content_text']
 

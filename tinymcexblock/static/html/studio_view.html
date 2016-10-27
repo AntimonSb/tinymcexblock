@@ -6,21 +6,28 @@
         <input class="input setting-input" name="display_name" id="display_name" value="{display_name}" type="text" />
       </div>
     </li>
-
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
-        <label class="label setting-label" for="thumbnail">Tile Image</label>
-        <input class="input setting-input" name="thumbnail" id="thumbnail" type="file" />
+        <label class="label setting-label" for="display_description">Description</label>
+        <input class="input setting-input" name="display_description" id="display_description" value="{display_description}" type="text" />
       </div>
-      <span class="tip setting-help">File for the thumbnail image</span>
+    </li>
+    <li class="field comp-setting-entry is-set">
+      <div class="wrapper-comp-setting">
+        <label class="label setting-label">Tile Image</label>
+        <input class="input setting-input hidden" name="thumbnail" id="thumbnail" type="file" />
+        <label for="thumbnail"><span class="choose-file">Choose File</span></label>
+        <label id="thumbnail_url">{thumbnail_url}</label>
+      </div>
     </li>
 
     <li class="field comp-setting-entry is-set">
       <div class="wrapper-comp-setting">
-        <label class="label setting-label" for="background">Page Background Image</label>
-        <input class="input setting-input" name="background" id="background" type="file" />
+        <label class="label setting-label">Page Background Image</label>
+        <input class="input setting-input hidden" name="background" id="background" type="file" />
+        <label for="background"><span class="choose-file">Choose File</span></label>
+        <label id="background_url">{background_url}</label>
       </div>
-      <span class="tip setting-help">File for the background image</span>
     </li>
 
     <li class="field comp-setting-entry is-set">
@@ -31,11 +38,9 @@
     </li>
 
     <li class="field comp-setting-entry is-set">
-      <div class="wrapper-comp-setting">
-        <label class="label setting-label" for="content_text">Content text</label>
+      <div class="wrapper-comp-setting" style="color: {text_color} !important">
         <textarea class="input setting-input tinymce-editor" name="content_text" id="content_text" type="text">{content_text}</textarea>
       </div>
-      <span class="tip setting-help">Text that will show in paragraph</span>
     </li>
   </ul>
   <div class="xblock-actions">
