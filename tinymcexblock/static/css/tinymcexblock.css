@@ -107,7 +107,8 @@
 }
 
 .tinymcexblock-wrapper.tinymce table[border], tinymcexblock-wrapper.tinymce table[border] th , tinymcexblock-wrapper.tinymce table[border] td, .mce-item-table[border], .mce-item-table[border] th, .mce-item-table[border] td {
-  border: 1px solid white;
+  border: 1px solid;
+  border-color: attr(border) + " ";
 }
 
 .editor-with-buttons.tinymce-studio{

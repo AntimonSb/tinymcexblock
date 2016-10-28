@@ -94,14 +94,15 @@ button,input,input:not([type]),input[type=color],input[type=text],input[type=tim
 .mce-content-body table[border]{
   border-spacing:0;
   border-collapse:separate;
-  border:1px solid white
+  border:1px solid;
+  border-color: attr(border) " ";
 }
 .mce-content-body table tr:nth-child(even){
   background:#FAFAFA
 }
 .mce-content-body table[border] caption, .mce-content-body table[border] td, .mce-content-body table[border] th{
   padding:15px 7px;
-  border: 1px solid white;
+  border:1px solid;
   border-collapse: collapse;
 }
 .mce-content-body table th{
