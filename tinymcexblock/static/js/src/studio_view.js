@@ -32,12 +32,15 @@ function StudioEditSubmit(runtime, element) {
   $( "#text_color, #background_url" ).change(function() {
     initTinymce();
   });
+
   $( "#thumbnail" ).change(function() {
     $( "#thumbnail_url" ).text($(this).val())
   });
+
   $( "#background" ).change(function() {
     $( "#background_url" ).text($(this).val())
   });
+
   function initTinymce(){
     tinymce.init({
       selector: 'textarea',
@@ -45,15 +48,16 @@ function StudioEditSubmit(runtime, element) {
       plugins: [
         'image link media table textcolor'
       ],
-      theme_advanced_default_foreground_color: "#CCC",
-      body_class: "cocolor",
       menubar:false,
+      body_id: 'tinymcebody',
       toolbar: 'newdocument undo redo | styleselect formatselect fontselect fontsizeselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |  link unlink anchor image media | forecolor backcolor table | hr removeformat | subscript superscript',
       content_css: '/xblock/resource/tinymcexblock/public/css/codepen.css',
-      content_style: ".mce-content-body{color:" + $('#text_color').val() +  "; background:url('" + $('#background_url').text() + "');}"
+      content_style: "body#tinymcebody{color:" + $('#text_color').val() +  "; background:url('" + $('#background_url').text() + "');}"
     });
   }
+
   initTinymce();
+
   $(".editor-with-buttons.tinymce-studio").first().closest(".modal-content").css("height", "100%");
 }
 

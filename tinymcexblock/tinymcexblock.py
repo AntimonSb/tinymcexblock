@@ -74,7 +74,6 @@ class TinyMceXBlock(XBlock):
                                                 ))
         
         frag.add_css(self.resource_string("static/css/tinymcexblock.css"))
-#        frag.add_css(self.load_resource("public/css/codepen.min.css"))
         frag.add_javascript(self.resource_string("static/js/src/studio_view.js"))
         
         frag.initialize_js('StudioEditSubmit')

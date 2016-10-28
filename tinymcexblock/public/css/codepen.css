@@ -5,14 +5,12 @@
   margin:0;
   background:50% 50% no-repeat;
   text-decoration:none;
-  color:inherit;
   box-sizing:border-box;
   font-weight:400
 }
 :focus{
   outline:0
 }
-
 b,b *,strong,strong *{
   font-weight:700
 }
@@ -51,10 +49,10 @@ button,input,input:not([type]),input[type=color],input[type=text],input[type=tim
   font-size: 18px;
 }
 .mce-content-body h1{
-  font-size: 51px
+  font-size: 51px;
 }
 .mce-content-body h2{
-  font-size:45px
+  font-size:45px;
 }
 .mce-content-body h3{
   font-size:39px
@@ -113,4 +111,8 @@ button,input,input:not([type]),input[type=color],input[type=text],input[type=tim
 }
 .mce-content-body table th:last-child{
   background:0 0
+}
+
+.mce-text {
+  color: black !important;
 }
