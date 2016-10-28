@@ -27,7 +27,7 @@ class TinyMceXBlock(XBlock):
                           help="This name appears in the horizontal navigation at the top of the page.")
     thumbnail_url = String(help="URL of the thumblnail image", default=None, scope=Scope.content)
     background_url = String(help="URL of the background image", default=None, scope=Scope.content)
-    text_color = String(help="Color of displayed text", default='#ffffff', scope=Scope.content)
+    text_color = String(help="Color of displayed text", default='#aaaaaa', scope=Scope.content)
     content_text = String(help="Paragraph text content", default='', scope=Scope.content)
 
     def resource_string(self, path):
