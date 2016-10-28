@@ -6,6 +6,7 @@ function StudioEditSubmit(runtime, element) {
     data.append('display_name', $(element).find('input[name=display_name]').val());
     data.append('display_description', $(element).find('input[name=display_description]').val());
     data.append('text_color', $(element).find('input[name=text_color]').val());
+    console.log(tinyMCE.activeEditor.getContent());
     data.append('content_text', tinyMCE.activeEditor.getContent({format : 'raw'}));
     data.append('background', $(element).find('input[name=background]')[0].files[0]);
     data.append('thumbnail', $(element).find('input[name=thumbnail]')[0].files[0]);
