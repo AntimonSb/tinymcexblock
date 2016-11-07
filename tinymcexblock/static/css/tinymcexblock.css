@@ -24,10 +24,9 @@
 
 .tinymcexblock-wrapper.tinymce .background {
   height: 100%;
-/*  width: 100%;*/
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 3em;
+  padding: 2em;
 }
 
 .tinymcexblock-wrapper.tinymce h1, .tinymcexblock-wrapper.tinymce h2, .tinymcexblock-wrapper.tinymce h3, .tinymcexblock-wrapper.tinymce h4, .tinymcexblock-wrapper.tinymce h5, .tinymcexblock-wrapper.tinymce h6 {
@@ -48,7 +47,7 @@
   top: 7%;
   left: 10%;
   padding: 0;
-  height: 80%;
+  height: 78%;
   width: 90%;
   overflow: auto;
   color: inherit;
@@ -104,11 +103,18 @@
   max-height: 80%;
   max-width: 80%;
   overflow: auto;
+  padding-bottom: 1px;
 }
 
-.tinymcexblock-wrapper.tinymce table[border], tinymcexblock-wrapper.tinymce table[border] th , tinymcexblock-wrapper.tinymce table[border] td, .mce-item-table[border], .mce-item-table[border] th, .mce-item-table[border] td {
-  border: 1px solid;
-  border-color: attr(border) + " ";
+.tinymcexblock-wrapper.tinymce table{
+  border-collapse: collapse;
+}
+.tinymcexblock-wrapper.tinymce table caption, .tinymcexblock-wrapper.tinymce table td, .tinymcexblock-wrapper.tinymce table th{
+  border:1px solid;
+  border-collapse: collapse;
+}
+.tinymcexblock-wrapper.tinymce table[border="0"] caption, .tinymcexblock-wrapper.tinymce table[border="0"] td, .tinymcexblock-wrapper.tinymce table[border="0"] th{
+  border:none;
 }
 
 .editor-with-buttons.tinymce-studio{

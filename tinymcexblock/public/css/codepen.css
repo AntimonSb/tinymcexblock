@@ -91,19 +91,19 @@ button,input,input:not([type]),input[type=color],input[type=text],input[type=tim
 .mce-content-body a[href]{
   text-decoration:underline
 }
-.mce-content-body table[border]{
-  border-spacing:0;
-  border-collapse:separate;
-  border:1px solid;
-  border-color: attr(border) " ";
-}
 .mce-content-body table tr:nth-child(even){
   background:#FAFAFA
 }
-.mce-content-body table[border] caption, .mce-content-body table[border] td, .mce-content-body table[border] th{
+.mce-content-body table{
+  border-collapse: collapse;
+}
+.mce-content-body table caption, .mce-content-body table td, .mce-content-body table th{
   padding:15px 7px;
   border:1px solid;
   border-collapse: collapse;
+}
+.mce-content-body table[border="0"] caption, .mce-content-body table[border="0"] td, .mce-content-body table[border="0"] th{
+  border:none;
 }
 .mce-content-body table th{
   font-weight:400;
