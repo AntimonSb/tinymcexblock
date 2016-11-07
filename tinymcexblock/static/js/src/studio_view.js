@@ -55,7 +55,15 @@ function StudioEditSubmit(runtime, element) {
       content_style: "body#tinymcebody{color:" + $('#text_color').val() +  "; background:url('" + $('#background_url').text() + "');}"
     });
   }
-
+  function refresh(){
+    setTimeout(function(){
+      $( "#content_text" ).val(tinyMCE.activeEditor.getContent({format : 'raw'}));
+      if ($("#content_text_ifr").length){
+        refresh();
+      }
+    }, 1000);
+  }
+  refresh();
   initTinymce();
 
   $(".editor-with-buttons.tinymce-studio").first().closest(".modal-content").css("height", "100%");
