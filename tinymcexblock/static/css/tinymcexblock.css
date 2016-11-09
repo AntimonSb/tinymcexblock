@@ -29,7 +29,7 @@
   padding: 2em;
 }
 
-.tinymcexblock-wrapper.tinymce h1, .tinymcexblock-wrapper.tinymce h2, .tinymcexblock-wrapper.tinymce h3, .tinymcexblock-wrapper.tinymce h4, .tinymcexblock-wrapper.tinymce h5, .tinymcexblock-wrapper.tinymce h6 {
+.tinymcexblock-wrapper.tinymce h1, .tinymcexblock-wrapper.tinymce h2, .tinymcexblock-wrapper.tinymce h3, .tinymcexblock-wrapper.tinymce h4, .tinymcexblock-wrapper.tinymce h5, .tinymcexblock-wrapper.tinymce h6, .tinymcexblock-wrapper.tinymce .header-text {
   font-family: "Roboto Condensed" !important;
   font-weight: 100;
   font-family: serif;
@@ -37,7 +37,7 @@
   line-height: 1.5em !important;
   padding: 0;
   text-align: left;
-  color: inherit !important;
+  color: inherit;
 }
 
 .tinymcexblock-wrapper.tinymce .tinymcexblock-content{

@@ -25,6 +25,7 @@ class TinyMceXBlock(XBlock):
                           default="Rich Text",
                           scope=Scope.settings,
                           help="This name appears in the horizontal navigation at the top of the page.")
+    header_text = String(help="Header text content", default='', scope=Scope.content)
     thumbnail_url = String(help="URL of the thumblnail image", default=None, scope=Scope.content)
     background_url = String(help="URL of the background image", default=None, scope=Scope.content)
     text_color = String(help="Color of displayed text", default='#aaaaaa', scope=Scope.content)
@@ -45,6 +46,7 @@ class TinyMceXBlock(XBlock):
         html_str = pkg_resources.resource_string(__name__, "static/html/tinymcexblock.html")
         frag = Fragment(unicode(html_str).format(
                                                 display_name=self.display_name,
+                                                header_text=self.header_text,
                                                 thumbnail_url=self.thumbnail_url,
                                                 background_url=self.background_url,
                                                 text_color=self.text_color,
@@ -66,6 +68,7 @@ class TinyMceXBlock(XBlock):
         # display variables
         frag = Fragment(unicode(html_str).format(
                                                 display_name=self.display_name,
+                                                header_text=self.header_text,
                                                 display_description=self.display_description,
                                                 thumbnail_url=self.thumbnail_url,
                                                 background_url=self.background_url,
@@ -87,6 +90,7 @@ class TinyMceXBlock(XBlock):
         """
         data = request.POST
         self.display_name = data['display_name']
+        self.header_text = data['header_text']
         self.display_description = data['display_description']
         self.text_color = data['text_color']
         self.content_text = data['content_text']
