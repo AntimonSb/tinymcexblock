@@ -1,5 +1,5 @@
 function StudioEditSubmit(runtime, element) {
-  var uploadhandlerUrl = runtime.handlerUrl(element, 'studio_file_upload');
+  var uploadImageUrl = runtime.handlerUrl(element, 'studio_image_upload');
   $(element).find('.save-button').bind('click', function() {
     var handlerUrl = runtime.handlerUrl(element, 'studio_submit');
 
@@ -55,15 +55,32 @@ function StudioEditSubmit(runtime, element) {
       toolbar: 'newdocument undo redo | styleselect formatselect fontselect fontsizeselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |  link unlink anchor image media | forecolor backcolor table | hr removeformat | subscript superscript',
       content_css: '/xblock/resource/tinymcexblock/public/css/codepen.css',
       content_style: "body#tinymcebody{color:" + $('#text_color').val() +  "; background:url('" + $('#background_url').text() + "');}",
-//      file_browser_callback: function(field_name, url, type, win) {
-//          if(type=='image') {
-//            $('#my_form').attr('action', uploadhandlerUrl)
-//            $('#my_form input').click();
-//            $('#my_form').on('submit', function(){
-//              console.log(this);
-//            });
-//          }
-//      }
+      images_upload_url: 'postAcceptor.php',
+      file_browser_callback_types: 'image',
+      automatic_uploads: true,
+      file_browser_callback: function(field_name, url, type, win) {
+        if(type=='image') {
+          $('#my_form input').click();
+          $('#my_form').on('submit', function(evt){
+            evt.preventDefault();
+            var data = new FormData();
+            data.append('image', $(this).find('input[name=upload_image]')[0].files[0]);
+            $.ajax({
+              url: uploadImageUrl,
+              type: 'POST',
+              data: data,
+              cache: false,
+              dataType: 'json',
+              processData: false,
+              contentType: false,
+              field_name: field_name
+            }).done(function(response) {
+              $('#' + this.field_name).val(response.url);
+            });
+            return false;
+          });
+        }
+      }
     });
   }
   function refresh(){

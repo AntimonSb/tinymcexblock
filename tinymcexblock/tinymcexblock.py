@@ -141,6 +141,37 @@ class TinyMceXBlock(XBlock):
 
         return Response(json_body={'result': 'success'})
 
+    @XBlock.handler
+    def studio_image_upload(self, request, suffix=''):
+        """
+        Called when uploading image trough tinymce.
+        """
+        data = request.POST
+
+        if not isinstance(data['image'], basestring):
+            upload = data['image']
+
+            filename = self._file_storage_name(upload.file.name)
+            content_location = StaticContent.compute_location(self.location.course_key, filename)
+
+            chunked = upload.file.multiple_chunks()
+            sc_partial = partial(StaticContent, content_location, filename, upload.file.content_type)
+            if chunked:
+                content = sc_partial(upload.file.chunks())
+                tempfile_path = upload.file.temporary_file_path()
+            else:
+                content = sc_partial(upload.file.read())
+                tempfile_path = None
+
+            contentstore().save(content)
+
+            # readback the saved content - we need the database timestamp
+            readback = contentstore().find(content.location)
+            locked = getattr(content, 'locked', False)
+#            self.background_url = StaticContent.serialize_asset_key_with_slash(content.location)
+
+        return Response(json_body={'result': 'success', 'url': StaticContent.serialize_asset_key_with_slash(content.location)})
+
     def _file_storage_name(self, filename):
         # pylint: disable=no-member
         """
