@@ -3,12 +3,15 @@ function StudioEditSubmit(runtime, element) {
   $(element).find('.save-button').bind('click', function() {
     var handlerUrl = runtime.handlerUrl(element, 'studio_submit');
 
+
+    parseTables();
+
     var data = new FormData();
     data.append('display_name', $(element).find('input[name=display_name]').val());
     data.append('header_text', $(element).find('input[name=header_text]').val());
     data.append('display_description', $(element).find('input[name=display_description]').val());
     data.append('text_color', $(element).find('input[name=text_color]').val());
-    data.append('content_text', tinyMCE.activeEditor.getContent({format : 'raw'}));
+    data.append('content_text', $( "#tinymce_content" ).html());
     data.append('background', $(element).find('input[name=background]')[0].files[0]);
     data.append('thumbnail', $(element).find('input[name=thumbnail]')[0].files[0]);
 
@@ -42,6 +45,17 @@ function StudioEditSubmit(runtime, element) {
   $( "#background" ).change(function() {
     $( "#background_url" ).text($(this).val())
   });
+
+  function parseTables(){
+    tables = $( "#tinymce_content" ).find("table");
+    $.each( tables, function(i, table){
+      var table_width = $(table).css("width");
+      if (table_width.indexOf("px") > -1){
+        var percentage_width = Number(table_width.replace(/[^\d\.]/g, '')) * 100 / tinymce.activeEditor.editorContainer.clientWidth;
+        $(table).css("width", percentage_width.toString() + "%" );
+      }
+    });
+  }
 
   function initTinymce(){
     tinymce.init({
@@ -85,7 +99,7 @@ function StudioEditSubmit(runtime, element) {
   }
   function refresh(){
     setTimeout(function(){
-      $( "#content_text" ).val(tinyMCE.activeEditor.getContent({format : 'raw'}));
+      $( "#tinymce_content" ).html(tinyMCE.activeEditor.getContent({format : 'raw'}));
       if ($("#content_text_ifr").length){
         refresh();
       }
