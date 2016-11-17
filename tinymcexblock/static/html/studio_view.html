@@ -1,66 +1,70 @@
-<div class="wrapper-comp-settings is-active editor-with-buttons tinymce-studio" id="settings-tab">
-  <ul class="list-input settings-list">
-    <li class="field comp-setting-entry is-set">
-      <div class="wrapper-comp-setting">
-        <label class="label setting-label" for="display_name">Content Name</label>
-        <input class="input setting-input" name="display_name" id="display_name" value="{display_name}" type="text" />
-      </div>
-    </li>
-    <li class="field comp-setting-entry is-set">
-      <div class="wrapper-comp-setting">
-        <label class="label setting-label" for="display_description">Description</label>
-        <input class="input setting-input" name="display_description" id="display_description" value="{display_description}" type="text" />
-      </div>
-    </li>
-    <li class="field comp-setting-entry is-set">
-      <div class="wrapper-comp-setting crop-url">
-        <label class="label setting-label">Tile Image</label>
-        <input class="input setting-input hidden" name="thumbnail" id="thumbnail" type="file" />
-        <label for="thumbnail"><span class="choose-file">Choose File</span></label>
-        <label id="thumbnail_url">{thumbnail_url}</label>
-      </div>
-    </li>
+<div class="wrapper-comp-settings is-active editor-with-buttons tinymce-studio" id="settings-tab" >
+    <ul class="list-input settings-list" >
+        <li class="field comp-setting-entry is-set" >
+            <div class="wrapper-comp-setting" >
+                <label class="label setting-label" for="display_name" >Content Name</label >
+                <input class="input setting-input" name="display_name" id="display_name" value="{display_name}"
+                       type="text" />
+            </div >
+        </li >
+        <li class="field comp-setting-entry is-set" >
+            <div class="wrapper-comp-setting" >
+                <label class="label setting-label" for="display_description" >Description</label >
+                <input class="input setting-input" name="display_description" id="display_description"
+                       value="{display_description}" type="text" />
+            </div >
+        </li >
+        <li class="field comp-setting-entry is-set" >
+            <div class="wrapper-comp-setting" >
+                <label class="label setting-label" for="thumbnail" >Thumbnail</label >
+                <input class="input setting-input" name="thumbnail" id="thumbnail" type="file" />
+            </div >
+            <span class="tip setting-help" >Upload a thumbnail image</span >
+        </li >
 
-    <li class="field comp-setting-entry is-set">
-      <div class="wrapper-comp-setting crop-url">
-        <label class="label setting-label">Page Background Image</label>
-        <input class="input setting-input hidden" name="background" id="background" type="file" />
-        <label for="background"><span class="choose-file">Choose File</span></label>
-        <label id="background_url">{background_url}</label>
-      </div>
-    </li>
+        <li class="field comp-setting-entry is-set" >
+            <div class="wrapper-comp-setting crop-url" >
+                <label class="label setting-label" >Page Background Image</label >
+                <input class="input setting-input hidden" name="background" id="background" type="file" />
+                <label for="background" ><span class="choose-file" >Choose File</span ></label >
+                <label id="background_url" >{background_url}</label >
+            </div >
+        </li >
 
-    <li class="field comp-setting-entry is-set">
-      <div class="wrapper-comp-setting">
-        <label class="label setting-label" for="text_color">Global color</label>
-        <input class="input setting-input" name="text_color" id="text_color" value="{text_color}" type="color" style="height: 40px;" />
-      </div>
-    </li>
-    <li class="field comp-setting-entry is-set">
-      <div class="wrapper-comp-setting">
-        <label class="label setting-label" for="header_text">Header text</label>
-        <input class="input setting-input" name="header_text" id="header_text" value="{header_text}" type="text" />
-      </div>
-    </li>
-    <li class="field comp-setting-entry is-set">
-      <div class="wrapper-comp-setting" style="color: {text_color} !important">
-        <textarea class="input setting-input tinymce-editor" name="content_text" id="content_text" type="text">{content_text}</textarea>
-        <iframe id="form_target" name="form_target" style="display:none"></iframe>
-        <form id="my_form" target="form_target" method="post" enctype="multipart/form-data" style="width:0px;height:0;overflow:hidden">
-            <input name="upload_image" type="file" onchange="$('#my_form').submit();this.value='';">
-        </form>
-        <div class="tinymce_content" id="tinymce_content" style="display:none"></div>
-      </div>
-    </li>
-  </ul>
-  <div class="xblock-actions">
-    <ul>
-      <li class="action-item">
-        <a href="#" class="button action-primary save-button">Save</a>
-      </li>
-      <li class="action-item">
-        <a href="#" class="button cancel-button">Cancel</a>
-      </li>
-    </ul>
-  </div>
-</div>
+        <li class="field comp-setting-entry is-set" >
+            <div class="wrapper-comp-setting" >
+                <label class="label setting-label" for="text_color" >Global color</label >
+                <input class="input setting-input" name="text_color" id="text_color" value="{text_color}" type="color"
+                       style="height: 40px;" />
+            </div >
+        </li >
+        <li class="field comp-setting-entry is-set" >
+            <div class="wrapper-comp-setting" >
+                <label class="label setting-label" for="header_text" >Header text</label >
+                <input class="input setting-input" name="header_text" id="header_text" value="{header_text}"
+                       type="text" />
+            </div >
+        </li >
+        <li class="field comp-setting-entry is-set" >
+            <div class="wrapper-comp-setting" style="color: {text_color} !important" >
+                <textarea class="input setting-input tinymce-editor" name="content_text" id="content_text" type="text" >{content_text}</textarea >
+                <iframe id="form_target" name="form_target" style="display:none" ></iframe >
+                <form id="my_form" target="form_target" method="post" enctype="multipart/form-data"
+                      style="width:0px;height:0;overflow:hidden" >
+                    <input name="upload_image" type="file" onchange="$('#my_form').submit();this.value='';" >
+                </form >
+                <div class="tinymce_content" id="tinymce_content" style="display:none" ></div >
+            </div >
+        </li >
+    </ul >
+    <div class="xblock-actions" >
+        <ul >
+            <li class="action-item" >
+                <a href="#" class="button action-primary save-button" >Save</a >
+            </li >
+            <li class="action-item" >
+                <a href="#" class="button cancel-button" >Cancel</a >
+            </li >
+        </ul >
+    </div >
+</div >

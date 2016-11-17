@@ -12,9 +12,10 @@ from xblock.fragment import Fragment
 from webob.response import Response
 from xmodule.contentstore.content import StaticContent
 from xmodule.contentstore.django import contentstore
+from xblock_django.mixins import FileUploadMixin
 
 
-class TinyMceXBlock(XBlock):
+class TinyMceXBlock(XBlock, FileUploadMixin):
     """
     TO-DO: document what your XBlock does.
     """
@@ -70,7 +71,6 @@ class TinyMceXBlock(XBlock):
                                                 display_name=self.display_name,
                                                 header_text=self.header_text,
                                                 display_description=self.display_description,
-                                                thumbnail_url=self.thumbnail_url,
                                                 background_url=self.background_url,
                                                 text_color=self.text_color,
                                                 content_text=self.content_text
@@ -95,49 +95,14 @@ class TinyMceXBlock(XBlock):
         self.text_color = data['text_color']
         self.content_text = data['content_text']
 
+        block_id = data['usage_id']
         if not isinstance(data['thumbnail'], basestring):
             upload = data['thumbnail']
-
-            filename = self._file_storage_name(upload.file.name)
-            content_location = StaticContent.compute_location(self.location.course_key, filename)
-
-            chunked = upload.file.multiple_chunks()
-            sc_partial = partial(StaticContent, content_location, filename, upload.file.content_type)
-            if chunked:
-                content = sc_partial(upload.file.chunks())
-                tempfile_path = upload.file.temporary_file_path()
-            else:
-                content = sc_partial(upload.file.read())
-                tempfile_path = None
-
-            contentstore().save(content)
-
-            # readback the saved content - we need the database timestamp
-            readback = contentstore().find(content.location)
-            locked = getattr(content, 'locked', False)
-            self.thumbnail_url = StaticContent.serialize_asset_key_with_slash(content.location)
+            self.thumbnail_url = self.upload_to_s3('THUMBNAIL', upload.file, block_id, self.thumbnail_url)
 
         if not isinstance(data['background'], basestring):
             upload = data['background']
-
-            filename = self._file_storage_name(upload.file.name)
-            content_location = StaticContent.compute_location(self.location.course_key, filename)
-
-            chunked = upload.file.multiple_chunks()
-            sc_partial = partial(StaticContent, content_location, filename, upload.file.content_type)
-            if chunked:
-                content = sc_partial(upload.file.chunks())
-                tempfile_path = upload.file.temporary_file_path()
-            else:
-                content = sc_partial(upload.file.read())
-                tempfile_path = None
-
-            contentstore().save(content)
-
-            # readback the saved content - we need the database timestamp
-            readback = contentstore().find(content.location)
-            locked = getattr(content, 'locked', False)
-            self.background_url = StaticContent.serialize_asset_key_with_slash(content.location)
+            self.background_url = self.upload_to_s3('BACKGROUND', upload.file, block_id, self.thumbnail_url)
 
         return Response(json_body={'result': 'success'})
 
