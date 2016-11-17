@@ -7,6 +7,7 @@ function StudioEditSubmit(runtime, element) {
     parseTables();
 
     var data = new FormData();
+    data.append('usage_id', $(element).data('usage-id'));
     data.append('display_name', $(element).find('input[name=display_name]').val());
     data.append('header_text', $(element).find('input[name=header_text]').val());
     data.append('display_description', $(element).find('input[name=display_description]').val());
