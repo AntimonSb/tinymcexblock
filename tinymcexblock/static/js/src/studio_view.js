@@ -49,11 +49,17 @@ function StudioEditSubmit(runtime, element) {
   function parseTables(){
     tables = $( "#tinymce_content" ).find("table");
     $.each( tables, function(i, table){
+      var width = "100%";
       var table_width = $(table).css("width");
       if (table_width.indexOf("px") > -1){
-        var percentage_width = Number(table_width.replace(/[^\d\.]/g, '')) * 100 / tinymce.activeEditor.editorContainer.clientWidth;
-        $(table).css("width", percentage_width.toString() + "%" );
+        width = (Number(table_width.replace(/[^\d\.]/g, '')) * 100 / tinymce.activeEditor.editorContainer.clientWidth).toString() + "%";
+        if (width == "0%"){
+          width = "100%";
+        }
+      } else {
+        width = table_width;
       }
+      $(table).css("width", width );
     });
   }
 

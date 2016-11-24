@@ -110,11 +110,17 @@
 }
 
 .tinymcexblock-wrapper.tinymce table{
+  table-layout:fixed;
   border-collapse: collapse;
+}
+.tinymcexblock-wrapper.tinymce td{
+  display:table-cell;
+  width:100px;
 }
 .tinymcexblock-wrapper.tinymce table caption, .tinymcexblock-wrapper.tinymce table td, .tinymcexblock-wrapper.tinymce table th{
   border:1px solid;
   border-collapse: collapse;
+  table-layout:fixed;
 }
 .tinymcexblock-wrapper.tinymce table[border="0"] caption, .tinymcexblock-wrapper.tinymce table[border="0"] td, .tinymcexblock-wrapper.tinymce table[border="0"] th{
   border:none;
