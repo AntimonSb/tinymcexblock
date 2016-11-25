@@ -95,17 +95,12 @@ button,input,input:not([type]),input[type=color],input[type=text],input[type=tim
   background:#FAFAFA
 }
 .mce-content-body table{
-  width: 0%;
   display:table;
   table-layout:fixed;
   border-collapse: collapse;
 }
-.mce-content-body tr{
-  width: 100%;
-}
 .mce-content-body td{
   display:table-cell;
-  width:100px;
 }
 .mce-content-body table caption, .mce-content-body table td, .mce-content-body table th{
   padding:15px 7px;

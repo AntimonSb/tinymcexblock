@@ -103,6 +103,13 @@ function StudioEditSubmit(runtime, element) {
         }
       }
     });
+    tinymce.activeEditor.on('change', function(e) {
+      $.each(tinymce.activeEditor.dom.select('table'), function (i, t){
+        if (!tinymce.activeEditor.dom.getAttrib(t, "width")){
+          tinymce.activeEditor.dom.setAttrib(t, 'width', '100%');
+        }
+      });
+    });
   }
   function refresh(){
     setTimeout(function(){
@@ -110,7 +117,7 @@ function StudioEditSubmit(runtime, element) {
       if ($("#content_text_ifr").length){
         refresh();
       }
-    }, 1000);
+    }, 2000);
   }
   refresh();
   initTinymce();
