@@ -1,40 +1,56 @@
 function StudioEditSubmit(runtime, element) {
   var uploadImageUrl = runtime.handlerUrl(element, 'studio_image_upload');
-  $(element).find('.save-button').bind('click', function() {
+  var $element = $(element);
+  $element.find('.save-button').bind('click', function() {
     var handlerUrl = runtime.handlerUrl(element, 'studio_submit');
 
+    var usageId            = $element.data('usage-id');
+    var displayName        = $element.find('input[name=display_name]').val();
+    var headerText         = $element.find('input[name=header_text]').val();
+    var displayDescription = $element.find('input[name=display_description]').val();
+    var textColor          = $element.find('input[name=text_color]').val();
+    var contentText        = $("#tinymce_content").html();
+    var background         = $element.find('input[name=background]')[0].files[0];
+    var thumbnail          = $element.find('input[name=thumbnail]')[0].files[0];
+
+    function imagesAreValid() {
+      if (thumbnail != undefined) {
+        if (thumbnail.size > 2000000) {
+            alert('Thumbnail size is too large!');
+            false;
+        }
+        if (thumbnail.type.indexOf('image') !== 0) {
+            alert('Thumbnail does not have a correct format!');
+            false;
+        }
+      }
+      if (background != undefined) {
+        if (background.size > 8000000) {
+            alert('Background image size is too large!');
+            return false;
+        }
+        if (background.type.indexOf('image') !== 0) {
+            alert('Background image does not have a correct format!');
+            return false;
+        }
+      }
+      return true;
+    };
+    if (!imagesAreValid()) {
+      return;
+    }
 
     parseTables();
 
     var data = new FormData();
-    data.append('usage_id', $(element).data('usage-id'));
-    data.append('display_name', $(element).find('input[name=display_name]').val());
-    data.append('header_text', $(element).find('input[name=header_text]').val());
-    data.append('display_description', $(element).find('input[name=display_description]').val());
-    data.append('text_color', $(element).find('input[name=text_color]').val());
-    data.append('content_text', $( "#tinymce_content" ).html());
-    data.append('background', $(element).find('input[name=background]')[0].files[0]);
-    data.append('thumbnail', $(element).find('input[name=thumbnail]')[0].files[0]);
-
-    if (data.get('thumbnail').size > 2000000) {
-        alert('Thumbnail size is too large!');
-        return;
-    }
-
-    if (data.get('thumbnail').type.indexOf('image') !== 0) {
-        alert('Thumbnail does not have a correct format!');
-        return;
-    }
-
-    if (data.get('background').size > 8000000) {
-        alert('Background image size is too large!');
-        return;
-    }
-
-    if (data.get('background').type.indexOf('image') !== 0) {
-        alert('Background image does not have a correct format!');
-        return;
-    }
+    data.append('usage_id', usageId);
+    data.append('display_name', displayName);
+    data.append('header_text', headerText);
+    data.append('display_description', displayDescription);
+    data.append('text_color', textColor);
+    data.append('content_text', contentText);
+    data.append('background', background);
+    data.append('thumbnail', thumbnail);
 
     runtime.notify('save', {state: 'start'});
 
