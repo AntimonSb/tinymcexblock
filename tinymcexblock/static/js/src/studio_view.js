@@ -16,6 +16,26 @@ function StudioEditSubmit(runtime, element) {
     data.append('background', $(element).find('input[name=background]')[0].files[0]);
     data.append('thumbnail', $(element).find('input[name=thumbnail]')[0].files[0]);
 
+    if (data.get('thumbnail').size > 2000000) {
+        alert('Thumbnail size is too large!');
+        return;
+    }
+
+    if (data.get('thumbnail').type.indexOf('image') !== 0) {
+        alert('Thumbnail does not have a correct format!');
+        return;
+    }
+
+    if (data.get('background').size > 8000000) {
+        alert('Background image size is too large!');
+        return;
+    }
+
+    if (data.get('background').type.indexOf('image') !== 0) {
+        alert('Background image does not have a correct format!');
+        return;
+    }
+
     runtime.notify('save', {state: 'start'});
 
     $.ajax({
