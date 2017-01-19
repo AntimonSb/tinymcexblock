@@ -15,7 +15,7 @@
   margin: 0;
   height: 100%;
   width: 100%;
-  font-family: "Roboto Condensed" !important;
+  font-family: Hind !important;
   color: inherit;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -30,9 +30,8 @@
 }
 
 .tinymcexblock-wrapper.tinymce h1, .tinymcexblock-wrapper.tinymce h2, .tinymcexblock-wrapper.tinymce h3, .tinymcexblock-wrapper.tinymce h4, .tinymcexblock-wrapper.tinymce h5, .tinymcexblock-wrapper.tinymce h6 {
-  font-family: "Roboto Condensed" !important;
+  font-family: Lora !important;
   font-weight: 100;
-  font-family: serif;
   margin: 1em 0 !important;
   line-height: 1.5em !important;
   padding: 0;
@@ -61,7 +60,7 @@
 }
 
 .tinymcexblock-wrapper.tinymce p {
-  font-family: "Roboto Condensed" !important;
+  font-family: Hind !important;
   font-weight: 100;
 }
 
@@ -98,7 +97,7 @@
 }
 
 .tinymcexblock-wrapper.tinymce .content-text, .tinymcexblock-wrapper.tinymce .tinymcexblock-content {
-  font-family: "Roboto Condensed" !important;
+  font-family: Hind !important;
   font-size: 20px;
   line-height: 1.5em;
   text-align: justify;
