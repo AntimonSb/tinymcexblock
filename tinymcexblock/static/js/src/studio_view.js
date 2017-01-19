@@ -104,12 +104,21 @@ function StudioEditSubmit(runtime, element) {
     tinymce.init({
       selector: 'textarea',
       height: 500,
+      menubar: 'file edit insert view tools',
+      theme: 'modern',
       plugins: [
-        'image link media table textcolor'
+        'image imagetools link media table textcolor fullscreen',
+        'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+        'searchreplace wordcount visualblocks visualchars code fullscreen',
+        'insertdatetime media nonbreaking save table contextmenu directionality',
+        'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc'
       ],
-      menubar:false,
+      toolbar1: 'fullscreen | newdocument undo redo | styleselect formatselect fontsizeselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |  link unlink anchor image media | forecolor backcolor table | hr removeformat | subscript superscript',
+      // toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+      toolbar2: 'print preview media | forecolor backcolor emoticons | codesample',
+      image_advtab: true,
       body_id: 'tinymcebody',
-      toolbar: 'newdocument undo redo | styleselect formatselect fontselect fontsizeselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |  link unlink anchor image media | forecolor backcolor table | hr removeformat | subscript superscript',
+      imagetools_toolbar: "rotateleft rotateright | flipv fliph | editimage imageoptions",
       content_css: '/xblock/resource/tinymcexblock/public/css/codepen.css',
       content_style: "body#tinymcebody{color:" + $('#text_color').val() +  "; background:url('" + $('#background_url').text() + "');}",
       images_upload_url: 'postAcceptor.php',

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+/*@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');*/
 *{
   border:0;
   padding:0;
@@ -34,7 +34,7 @@ button,input,input:not([type]),input[type=color],input[type=text],input[type=tim
   display:initial!important
 }
 .mce-content-body{
-  font-family: "Roboto Condensed" !important;
+  font-family: "Hind" !important;
   padding:0 25px 25px;
   margin:25px 0 15px;
   height: 100%;
@@ -45,12 +45,13 @@ button,input,input:not([type]),input[type=color],input[type=text],input[type=tim
   font-weight: 400;
 }
 .mce-content-body h1,.mce-content-body h2,.mce-content-body h3,.mce-content-body h4,.mce-content-body h5,.mce-content-body h6{
-  font-family: "Roboto Condensed";
+  font-family: Lora !important;
   font-weight: 100;
   line-height:1.2em;
   margin: 1em 0;
   font-size: 18px;
 }
+
 .mce-content-body h1{
   font-size: 51px;
 }
