@@ -31,7 +31,7 @@
 
 .tinymcexblock-wrapper.tinymce h1, .tinymcexblock-wrapper.tinymce h2, .tinymcexblock-wrapper.tinymce h3, .tinymcexblock-wrapper.tinymce h4, .tinymcexblock-wrapper.tinymce h5, .tinymcexblock-wrapper.tinymce h6 {
   font-family: Lora !important;
-  font-weight: 100;
+  font-weight: 400;
   margin: 1em 0 !important;
   line-height: 1.5em !important;
   padding: 0;
@@ -39,10 +39,25 @@
   color: inherit;
 }
 
+.tinymcexblock-wrapper.tinymce h1 strong,
+.tinymcexblock-wrapper.tinymce h2 strong,
+.tinymcexblock-wrapper.tinymce h3 strong,
+.tinymcexblock-wrapper.tinymce h4 strong,
+.tinymcexblock-wrapper.tinymce h5 strong,
+.tinymcexblock-wrapper.tinymce h6 strong {
+  font-weight: 400 !important;
+}
+
 .tinymcexblock-wrapper.tinymce .header-text {
   font-family: 'Lora', serif !important;
   position: relative;
   left: 10%;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 54px;
+  font-size: 3.375rem;
+  top: 60px;
 }
 
 .tinymcexblock-wrapper.tinymce .tinymcexblock-content{
