@@ -23,7 +23,7 @@ class TinyMceXBlock(XBlock, FileUploadMixin):
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
     display_name = String(display_name="Display Name",
-                          default="Text",
+                          default="TEXT",
                           scope=Scope.settings,
                           help="This name appears in the horizontal navigation at the top of the page.")
     header_text = String(help="Header text content", default='', scope=Scope.content)
