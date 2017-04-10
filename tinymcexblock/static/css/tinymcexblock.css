@@ -7,6 +7,10 @@
   width: auto !important;
 }
 
+input[type=color] {
+  height: 20px !important;
+}
+
 .tinymcexblock-wrapper.tinymce {
   position: fixed;
   top: 0;
