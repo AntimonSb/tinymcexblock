@@ -7,6 +7,8 @@ function StudioEditSubmit(runtime, element) {
     var usageId            = $element.data('usage-id');
     var displayName        = $element.find('input[name=display_name]').val();
     var headerText         = $element.find('input[name=header_text]').val();
+    var headerColor        = $element.find('input[name=header_color]').val();
+    var headerSize         = $element.find('input[name=header_size]').val();    
     var displayDescription = $element.find('input[name=display_description]').val();
     var textColor          = $element.find('input[name=text_color]').val();
     var contentText        = $("#tinymce_content").html();
@@ -46,6 +48,8 @@ function StudioEditSubmit(runtime, element) {
     data.append('usage_id', usageId);
     data.append('display_name', displayName);
     data.append('header_text', headerText);
+    data.append('header_color', headerColor);
+    data.append('header_size', headerSize);
     data.append('display_description', displayDescription);
     data.append('text_color', textColor);
     data.append('content_text', contentText);
