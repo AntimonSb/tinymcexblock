@@ -53,29 +53,29 @@ input[type=color] {
 }
 
 .tinymcexblock-wrapper.tinymce .header-text {
-  font-family: 'Lora', serif !important;
   position: relative;
-  left: 10%;
-
+  top: 60px;
+  width: 100%;
+  max-width: 880px;
+  margin: 20px auto !important;
+  font-weight: 400;
+  font-family: Lora, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 54px;
-  font-size: 3.375rem;
-  top: 60px;
 }
 
-.tinymcexblock-wrapper.tinymce .tinymcexblock-content{
+.tinymcexblock-wrapper.tinymce .tinymcexblock-content {
   position: relative;
   font-family: 'Hind', sans-serif !important;
   font-weight: 100;
-  top: 1%;
-  left: 10%;
+  top: 7%;
   padding: 0;
-  height: 78%;
-  width: 90%;
-  overflow: auto;
+  height: 60%;
+  width: 100%;
+  max-width: 880px;
+  overflow-y: auto;
   color: inherit;
-  padding-right: 30px;
+  margin: 0 auto;
 }
 
 .tinymcexblock-wrapper.tinymce p {
@@ -113,19 +113,6 @@ input[type=color] {
 
 .tinymcexblock-wrapper.tinymce h6 {
   font-size: 26px;
-}
-
-.tinymcexblock-wrapper.tinymce .content-text, .tinymcexblock-wrapper.tinymce .tinymcexblock-content {
-  font-family: Hind !important;
-  font-size: 20px;
-  line-height: 1.5em;
-  text-align: justify;
-  margin: 2em 0;
-  white-space: pre-wrap;
-  max-height: 70%;
-  max-width: 80%;
-  overflow: auto;
-  padding-bottom: 1px;
 }
 
 .tinymcexblock-wrapper.tinymce table{
