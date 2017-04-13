@@ -28,7 +28,7 @@ class TinyMceXBlock(XBlock, FileUploadMixin):
                           help="This name appears in the horizontal navigation at the top of the page.")
     header_text = String(help="Header text content", default='', scope=Scope.content)
     header_color = String(help="Header text color", default='#aaaaaa', scope=Scope.content)
-    header_size = String(help="Header text size in px", default='66px', scope=Scope.content)    
+    header_size = String(help="Header text size in px", default='54px', scope=Scope.content)    
     thumbnail_url = String(help="URL of the thumblnail image", default=None, scope=Scope.content)
     background_url = String(help="URL of the background image", default=None, scope=Scope.content)
     text_color = String(help="Color of displayed text", default='#aaaaaa', scope=Scope.content)
