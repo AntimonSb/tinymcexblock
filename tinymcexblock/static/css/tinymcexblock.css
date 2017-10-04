@@ -78,7 +78,7 @@ input[type=color] {
   margin: 0 auto;
 }
 
-.tinymcexblock-wrapper.tinymce p {
+.tinymcexblock-wrapper.tinymce span {
   font-family: Hind !important;
   font-weight: 100;
 }
