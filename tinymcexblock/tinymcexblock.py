@@ -58,7 +58,6 @@ class TinyMceXBlock(XBlock, FileUploadMixin):
                                                 content_text=self.content_text
                                                 ))
 
-        frag.add_css(self.resource_string("static/css/tinymcexblock.css"))
         frag.add_javascript(self.resource_string("static/js/src/tinymcexblock.js"))
         frag.initialize_js('TinyMceXBlock')
         return frag
@@ -82,9 +81,7 @@ class TinyMceXBlock(XBlock, FileUploadMixin):
                                                 content_text=self.content_text
                                                 ))
         
-        frag.add_css(self.resource_string("static/css/tinymcexblock.css"))
         frag.add_javascript(self.resource_string("static/js/src/studio_view.js"))
-        
         frag.initialize_js('StudioEditSubmit')
 
         return frag
